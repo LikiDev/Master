@@ -1,0 +1,20 @@
+{
+  "name": "docker_intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node .\mi_proyecto\server2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "*",
+    "cors": "*",
+    "ip": "^1.1.5",
+    "mongodb": "^4.16.0",
+    "mongoose": "^7.1.0"
+  }
+}
