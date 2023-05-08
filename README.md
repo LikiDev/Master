@@ -1,9 +1,8 @@
 # Bootcamp del Master en Full Stack Web Development de ThreePoints
 
-Este repositorio es una breve guía para que los alumnos del master tengan una base de nodejs y docker de acuerdo al temario impartido en el Bootcamp del Master en Full Stack Web Development de Three Points.
+He seguido el guion propuesto en el README y le he añadido lo que creo que puede ser relevante
 
 ## Descripción de contenidos
-
 
 * ide_intro: código de muestra en la explicación del IDE.
 * node-npm_intro: ejemplos sencillos en node para levantar una app.
@@ -15,6 +14,7 @@ Este repositorio es una breve guía para que los alumnos del master tengan una b
 Dado que en la actividad se pide que la app, desplegada en un Docker se comunique con la base de datos, también desplegada en un Docker container,
 se pueden seguir los siguientes pasos para que la app se comunique con el container de mongo.
 
+npm install express mongoose dotenv
 ```bash
 docker network create <my-network>
 docker run --name <container-name> --hostname <your-hostname> -d -p 27017:27017 --network <my-network> mongo

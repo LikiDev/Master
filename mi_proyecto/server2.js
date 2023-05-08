@@ -1,39 +1,32 @@
-// import express from 'express';
-// import { connect, Schema, model } from 'mongoose';
-// require('dotenv').config();
 
-// Creamos la aplicación express
+const express = require('express');
+const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
 
-// ... y nos conectamos a la base de datos
-connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const mongoose = require("mongoose");
+const url = 'mongodb://127.0.0.1:27017/mydatabase';
+
+mongoose.connect(url, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
 });
 
 // Crearemos razas de perro, que tendrán nombre, tamaño y esperanza de vida
-const schema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true, // para que el campo 'name' sea clave
-      },
-    size: {
-      type: String,
-      enum: ['pequeño', 'mediano', 'grande'],
-      required: true,
-    },
-    lifespan: {
-      type: Number,
-      required: true,
-    },
-  });
-  const Breed = model('Breed', schema);
+const breedSchema = {
+    name: String,
+    lifespan: Number,
+    size: String
+};
+
+app.use(cors({
+    origin: '*'
+}));
+
+const Breed = mongoose.model("Breed", breedSchema)
 
 // Ruta para devolver todos los documentos
 app.get('/api/documents', async (req, res) => {
-  const documents = await Model.find();
+  const documents = await Breed.find();
   res.json(documents);
 });
 
@@ -89,14 +82,9 @@ app.delete('/breeds/:name', async (req, res) => {
   });
 
 // Iniciar el servidor
-app.listen(port, () => {
-  console.log(`Servidor iniciado en el puerto ${port}`);
+app.listen(3000, () => {
+  console.log(`Servidor iniciado en el puerto 3000`);
 });
-//Reemplazar los comentarios // definir los campos del documento con los campos necesarios para el modelo de datos.
-
-//Ejecutar el servidor con el comando node server.js.
-
-//Ahora la API estará disponible en la URL http://localhost:3000/api/documents y las rutas definidas en el archivo server.js estarán disponibles en http://localhost:3000/api/documents, `http://localhost:3000
 
 
 
