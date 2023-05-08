@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 
 const mongoose = require("mongoose");
-const url = 'mongodb://127.0.0.1:27017/mydatabase';
+const url = 'mongodb://127.0.0.1:27777/mydatabase';
 
 mongoose.connect(url, {
    useNewUrlParser: true,
@@ -65,7 +65,7 @@ app.put('/api/documents/:name', async (req, res) => {
   });
 
 // Ruta para eliminar una raza concreta
-app.delete('/breeds/:name', async (req, res) => {
+app.delete('/api/documents/:name', async (req, res) => {
     const { name } = req.params;
   
     try {
