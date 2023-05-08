@@ -2,6 +2,8 @@
 
 He seguido el guion propuesto en el README y le he añadido lo que creo que puede ser relevante
 
+Los datos de mi proyecto los he dejado en Master/mi_proyecto
+
 ## Descripción de contenidos
 
 ## CREACIÓN DE DOCKER CON PERSISTENCIA:
